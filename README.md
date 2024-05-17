@@ -14,13 +14,13 @@ python -m pip install capsolver_extension_python
 ## Usage with [Botasaurus Web Scraping Framework](https://github.com/omkarcloud/botasaurus)
 
 ```python
-from botasaurus import *
+from botasaurus.browser import browser, Driver
 from capsolver_extension_python import Capsolver
 
 @browser(
     extensions=[Capsolver(api_key="CAP-MY_KEY")], # TODO: Replace with your own CapSolver Key
 )  
-def solve_captcha(driver: AntiDetectDriver, data):
+def solve_captcha(driver: Driver, data):
     driver.get("https://recaptcha-demo.appspot.com/recaptcha-v2-checkbox.php")
     driver.prompt()
 
@@ -77,6 +77,27 @@ with sync_playwright() as p:
     input("Press Enter to exit...")
     browser.close()
 ```
+## Use App ID
+
+```python
+from botasaurus.browser import browser, Driver
+from capsolver_extension_python import Capsolver
+
+@browser(
+    extensions=[Capsolver(api_key="CAP-MY_KEY", app_id="DC601421-43D5-45E4-9FDB-B3BAF7A2C3FD")], # TODO: Replace with your own CapSolver Key and App ID
+)  
+def solve_captcha(driver: Driver, data):
+    driver.get("https://recaptcha-demo.appspot.com/recaptcha-v2-checkbox.php")
+    driver.prompt()
+
+solve_captcha()
+```
+
+## Note
+
+When you use the Capsolver Extension, we integrate our own app ID into the extension if you haven't provided one. This allows us to earn a small commission from each captcha you solve, at no extra cost to you. 
+
+These funds supports us in our efforts to develop awesome open-source projects to make your life easy.
 
 ## Love It? [Star It ⭐!](https://github.com/omkarcloud/capsolver-extension-python)
 

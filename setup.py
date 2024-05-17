@@ -20,7 +20,7 @@ def get_description():
 
 setup(
     name="capsolver_extension_python",
-    version="1.0.1",
+    version="1.0.2",
     author="Chetan Jain",
     author_email="chetan@omkar.cloud",
     description="Capsolver Extension Python allows you to easily integrate Capsolver Extension in web automation frameworks like Botasaurus, Selenium, and Playwright. ",
